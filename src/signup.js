@@ -73,7 +73,7 @@ const Signup = () => {
                                        {errors.mobilenumberormail && touched.mobilenumberormail? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.mobilenumberormail}</div>:null}
                                     </div>
                                     <div className="input_name1 mb-1">
-                                        <Field name="newpassword" placeholder="New password"  className="formnamemail form-control" />
+                                        <Field name="newpassword" placeholder="New password"  className="formnamemail form-control" type='password' />
                                         {errors.newpassword && touched.newpassword? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.newpassword}</div>:null}
                                   </div>
                                     <div className='m-0'>
