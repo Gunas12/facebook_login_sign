@@ -49,7 +49,7 @@ span{
 export const Inputdiv = styled.div`
   background-color:white;
   width:400px;
-  height:350px;
+  height:390px;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -115,7 +115,7 @@ export const Inputdiv = styled.div`
 export const Addaccount = styled.div`
   background-color:white!important;
   width:432px;
-  height:550px;
+  height:570px;
   
   border-radius:10px;
   position:absolute;
