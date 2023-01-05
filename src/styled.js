@@ -115,7 +115,7 @@ export const Inputdiv = styled.div`
 export const Addaccount = styled.div`
   background-color:white!important;
   width:432px;
-  height:570px;
+  height:700px;
   
   border-radius:10px;
   position:absolute;
@@ -166,16 +166,16 @@ export const Addaccount = styled.div`
     
   }
   .input_name{
-    margin-left:10px;
+    margin-left:5px;
    
   }
   .input_name1{
-    margin-left:20px;
+    margin-left:10px;
     margin-top:5px;
    
   }
   .gender_word{
-    margin-left:10px;
+    margin-left:5px;
   }
   .gender_div_main{.
 margin:0;
@@ -206,7 +206,7 @@ margin-left:5px;
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-   padding: 0 32px;
+   padding: 0 28px;
     
 
     }

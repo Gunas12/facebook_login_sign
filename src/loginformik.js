@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import 'bootstrap/dist/css/bootstrap.css';
 import { v4 as uuidv4 } from 'uuid';
-import { Addaccount, Inputdiv } from './styled';
+import { Addaccount, Blurdiv, Inputdiv } from './styled';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from 'react';
 import * as Yup from "yup"
@@ -17,6 +17,7 @@ const lOGINerror=Yup.object().shape({
 
 const LoginFormik = () => {
     const [show, setShow] = useState(false)
+    
 
     return (
         <div>
@@ -69,11 +70,17 @@ const LoginFormik = () => {
                 }
             </Formik>
             {show && 
-            <Addaccount className="shadow-lg p-3 mb-5 bg-body rounded">
+            <>
+          
+            <Addaccount className="shadow-lg p-3 mb-5 bg-body rounded" >
                  <h2>Sign Up    <button className='Xbutton' onClick={() => setShow(!show)}><i className="bi bi-x "></i></button></h2>
                 <p>It’s quick and easy.</p><hr className='m-0 p-0 ' />
                 <Signup/>
-            </Addaccount>}
+            </Addaccount>
+
+            </>
+            }
+           
         </div >
            
     );

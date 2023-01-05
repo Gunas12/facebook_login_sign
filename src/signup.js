@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import 'bootstrap/dist/css/bootstrap.css';
 import { v4 as uuidv4 } from 'uuid';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useState } from 'react';
 
 import * as Yup from "yup"
 
@@ -16,7 +17,7 @@ const Signuperror=Yup.object().shape({
 })
 
 const Signup = () => {
-    
+ 
 
     return (
         <div>
@@ -29,7 +30,9 @@ const Signup = () => {
                     birthday: "",
                     birthmonth: "",
                     birthyear: "",
-                    gender: []
+                    gender: [],
+                    custom_1:"",
+                    optional:"",
 
                 }
                 }
@@ -44,6 +47,8 @@ const Signup = () => {
                         password: values.newpassword,
                         birthday: [values.birthmonth, values.birthday, values.birthyear],
                         gender: values.gender,
+                        custom_1:values.custom_1,
+                        optional:values.optional,
                     }
                   
                     console.log("SIGN UP OBJECT:", newTodoItem);
@@ -61,20 +66,20 @@ const Signup = () => {
                                         <div className='row input_name '>
                                         <div className='col-6'>
                                             <Field name="firstname" placeholder="First name" className="formnamelas form-control" /></div>
-                                            {errors.firstname && touched.firstname? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.firstname}</div>:null}
+                                            {errors.firstname && touched.firstname? <div className='mt-0 pt-0 mb-0 pb-0' style={{color:"red",fontSize:12}}>{errors.firstname}</div>:null}
                                   
                                         <div className='col-6'>
                                             <Field name="lastname" placeholder="Last name" className="formnamelas form-control" /></div>
-                                            {errors.lastname && touched.lastname? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.lastname}</div>:null}
+                                            {errors.lastname && touched.lastname? <div className='mt-0 pt-0 mb-0 pb-0' style={{color:"red",fontSize:12}}>{errors.lastname}</div>:null}
                                   
                                     </div>
                                     <div className="input_name1 mb-2">
                                         <Field name="mobilenumberormail" placeholder="Mobile number or email" className="formnamemail form-control" />
-                                       {errors.mobilenumberormail && touched.mobilenumberormail? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.mobilenumberormail}</div>:null}
+                                       {errors.mobilenumberormail && touched.mobilenumberormail? <div className='mt-0 pt-0 mb-0 pb-0' style={{color:"red",fontSize:12}}>{errors.mobilenumberormail}</div>:null}
                                     </div>
                                     <div className="input_name1 mb-1">
                                         <Field name="newpassword" placeholder="New password"  className="formnamemail form-control" type='password' />
-                                        {errors.newpassword && touched.newpassword? <div className='mt-0 pt-0' style={{color:"red",fontSize:12}}>{errors.newpassword}</div>:null}
+                                        {errors.newpassword && touched.newpassword? <div className='mt-0 pt-0 mb-0 pb-0' style={{color:"red",fontSize:12}}>{errors.newpassword}</div>:null}
                                   </div>
                                     <div className='m-0'>
                                         <div className='row m-0'>
@@ -170,9 +175,22 @@ const Signup = () => {
                                         <div className='row gender_div_main m-0'>
                                             <div className='col-4 gender_div form-control'>Male  <Field type="radio" value="Male" name="gender" /></div>
                                             <div className='col-4 gender_div form-control'> Female  <Field type="radio" value="Female" name="gender" /></div>
-                                            <div className='col-4 gender_div form-control'> Custom <Field type="radio" value="Custom" name="gender" /></div>
+                                            <div className='col-4 gender_div form-control'> Custom <Field type="radio" value="Custom" name="gender"  /> </div>
+                                            
                                         </div>
+                                        {
+                                        values.gender==='Custom' ? <div >
+                                        <Field component="select" name="custom_1" className="form-select form-select mb-2" >
+                                        <option value="1">She: "Wish her a happy birthday!"</option>
+                                        <option value="2">He: "Wish him a happy birthday!"</option>
+                                        <option value="6">They: "Wish them a happy birthday!"</option>
+                                            
+                                        </Field>
+                                        <Field   className=" form-control" name="optional" placeholder="Gender(optional)"/>
+                                        </div>:null
+                                    }
                                     </div>
+                                   
                                     <p className='p_butt mb-2 mt-2'>People who use our service may have uploaded your contact information to Facebook. <br />
                                         By clicking Sign Up, you agree to our <a href="/legal/terms/update" id="terms-link" target="_blank" rel="nofollow">Terms</a>, <a href="/about/privacy/update" id="privacy-link" target="_blank" rel="nofollow">Privacy Policy</a> and <a href="/policies/cookies/" id="cookie-use-link" target="_blank" rel="nofollow">Cookies Policy</a>. You may receive SMS Notifications from us and can opt out any time.</p>
                                     <div className='buttonsignup '> <button type="Submit" className="btn">Sign up</button></div>
